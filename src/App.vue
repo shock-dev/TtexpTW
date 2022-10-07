@@ -43,7 +43,7 @@ export default {
   computed: {
     chartData() {
       return {
-        labels: this.list.map((i) => `Пользователь ${i.userId}`),
+        labels: this.list.map((i) => `User ${i.userId}`),
         datasets: [
           {
             label: "Completed",

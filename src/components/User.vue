@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <header class="header">
-      <p>Пользователь {{ num }}</p>
+      <p>User {{ num }}</p>
       <p>
         <span class="success">{{ success }}</span>
         /
