@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    <BarChart
+      v-show="list.length > 0"
+      css-classes="bar"
+      :chart-data="chartData"
+    />
     <div class="header">
       <button class="btn" @click="getUsers" :disabled="loading">
         Загрузить данные
@@ -20,6 +25,7 @@
 </template>
 
 <script>
+import BarChart from "./components/Bar.vue";
 import User from "@/components/User";
 import Loader from "@/components/Loader";
 import UsersApi from "@/api/users";
@@ -33,7 +39,21 @@ export default {
       loading: false,
     };
   },
-  components: { Loader, User },
+  components: { BarChart, Loader, User },
+  computed: {
+    chartData() {
+      return {
+        labels: this.list.map((i) => `Пользователь ${i.userId}`),
+        datasets: [
+          {
+            label: "Completed",
+            backgroundColor: "#476eab",
+            data: this.list.map((i) => i.success),
+          },
+        ],
+      };
+    },
+  },
   methods: {
     prepareTemplateData(list) {
       return Object.values(list).map((i) =>
@@ -82,6 +102,10 @@ export default {
 
 p {
   margin: 0;
+}
+
+.bar {
+  margin-bottom: 20px;
 }
 
 .header {
