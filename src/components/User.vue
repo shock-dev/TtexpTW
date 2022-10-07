@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <header class="header">
-      <p>User {{ id }}</p>
+      <p>Пользователь {{ num }}</p>
       <p>
         <span class="success">{{ success }}</span>
         /
@@ -18,7 +18,7 @@
 export default {
   name: "User",
   props: {
-    id: Number,
+    num: Number,
     success: Number,
     fails: Number,
     list: Array,
@@ -28,9 +28,9 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 10px;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+  padding: 12px;
 }
 
 .header {
@@ -49,6 +49,7 @@ export default {
 
 .titles {
   margin: 15px 0 0 0;
+  padding-left: 25px;
 }
 
 .titles > *:not(:last-child) {
