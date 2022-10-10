@@ -18,10 +18,10 @@
 export default {
   name: "User",
   props: {
-    num: Number,
-    success: Number,
-    fails: Number,
-    list: Array,
+    num: { type: Number, required: true },
+    success: { type: Number, default: 0 },
+    fails: { type: Number, default: 0 },
+    list: { type: Array, default: () => [] },
   },
 };
 </script>
